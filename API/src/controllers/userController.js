@@ -28,3 +28,36 @@ exports.register = async(req, res, next)=>{
     }
 }
 
+exports.login = async (req, res, next)=>{
+    try {
+        const {email, password} = req.body
+        if(!email){
+            return next(new ErrorHandler('Please Provide Your Email Address', 403))
+        }
+        if(!password){
+            throw new ErrorHandler('Please Provide A Password', 403 )
+        }
+        const user = await User.findOne({email})
+        if(!user){
+            return next(new ErrorHandler('Invalid Email Or Password', 400))
+        }
+        const isValid = await user.comparePassword(password)
+        if(!isValid){
+            return next(new ErrorHandler('Invalid Email Or Password', 400))
+        }
+
+       sendToken(user, 200, res)
+    } catch (error) {
+        next(error)
+    }
+}
+
+
+const sendToken = async (user, statusCode, res)=>{
+    const token = await user.signJwtToken();
+    res.status(statusCode).json({
+        success: true,
+        user: user,
+        jwtToken: token
+    })
+}
