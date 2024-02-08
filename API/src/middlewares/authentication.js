@@ -18,7 +18,6 @@ exports.authenticate = async (req, res, next)=>{
 }
 
 exports.isAllowedToCreateArticles = async (req, res, next) =>{
-    console.log(req.user);
     if(req.user.role === 'super' || req.user.role === 'member'){
         next()
     }else{
