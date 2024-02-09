@@ -87,3 +87,88 @@ exports.deletePost = async (req, res, next)=>{
         next(error)
     }
 }
+
+exports.likePost = async (req, res, next) =>{
+    try {
+        const postId = req.params.id
+        const post = await Blog.findByIdAndUpdate(
+            { _id: postId },
+            { $addToSet: {likes: req.user.id }},
+            { new: true }
+        )
+        if(!post){
+            return next(new ErrorHandler('No Post was Found', 404))
+        }
+        res.status(200).json({
+            success: true,
+            post
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.removeLike = async(req, res, next) =>{
+    try {
+        const postId = req.params.id
+        const post = await Blog.findByIdAndUpdate(
+            { _id: postId },
+            { $pull: {likes: req.user.id }},
+            { new: true }
+        )
+        if(!post){
+            return next(new ErrorHandler('No Post was Found', 404))
+        }
+        res.status(200).json({
+            success: true,
+            post
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.addComment = async (req, res, next)=>{
+    try {
+        const postId = req.params.id
+        const post = await Blog.findByIdAndUpdate(
+            { _id: postId},
+            { $push: {
+                comments: {
+                    text: req.body.text,
+                    postedBy: req.user._id
+                    }
+                }
+            },
+            { new: true }
+        )
+        res.status(200).json({
+            success: true,
+            post
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+exports.deleteComment = async (req, res, next)=>{
+    try {
+        const postId = req.params.id
+        const post = await Blog.findByIdAndUpdate(
+            { _id: postId},
+            { $pull: {
+                comments: {
+                    _id: req.body._id
+                    }
+                }
+            },
+            { new: true }
+        )
+        res.status(200).json({
+            success: true,
+            post
+        })
+    } catch (error) {
+        next(error)
+    }
+}
