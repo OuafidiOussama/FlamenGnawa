@@ -13,4 +13,8 @@ router.use('/blog', blogRouter)
 const productRouter = require('./product')
 router.use('/products', productRouter)
 
+
+const categoryRouter = require('./category')
+router.use('/categories', categoryRouter)
+
 module.exports = router
