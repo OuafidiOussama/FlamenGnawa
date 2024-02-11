@@ -22,7 +22,15 @@ exports.isAllowedToCreateArticles = async (req, res, next) =>{
     if(req.user.role === 'super' || req.user.role === 'member'){
         next()
     }else{
-        return next(new ErrorHandler('Access denied', 401))
+        return next(new ErrorHandler('Access denied', 403))
+    }
+}
+
+exports.isAdmin = async(req, res, next) =>{
+    if(req.user.role === 'super'){
+        next()
+    }else{
+        return next(new ErrorHandler('Access Denied', 403))
     }
 }
 
