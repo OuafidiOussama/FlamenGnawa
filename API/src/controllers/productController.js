@@ -4,7 +4,7 @@ const ErrorHandler = require('../utils/errorHandler')
 
 exports.getAllProducts = async (req, res, next) =>{
     try{
-        const products = await Product.find()
+        const products = await Product.find().populate('category')
         res.status(200).json({
             success: true,
             products
@@ -17,7 +17,7 @@ exports.getAllProducts = async (req, res, next) =>{
 exports.getProductById = async(req, res, next)=>{
     try {
         const productId = req.params.id
-        const product = await Product.findOne({_id: productId})
+        const product = await Product.findOne({_id: productId}).populate('category')
 
         if(!product){
             return next(new ErrorHandler('Product doesnt exist', 404))
@@ -82,7 +82,7 @@ exports.updateProduct = async (req, res, next)=>{
             {_id: productId},
             data,
             {new: true}
-        )
+        ).populate('category')
         res.status(200).json({
             success: true,
             updatedProduct,
