@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const {ObjectId} = mongoose.Schema
 
 const productSchema = new mongoose.Schema({
     label:{
@@ -32,9 +33,8 @@ const productSchema = new mongoose.Schema({
         required: [true, 'Please Provide Your Product Picture'],
     },
     category: {
-        type: String,
-        trim: true,
-        required: [true, 'Please Provide Your Product Category'],
+        type: ObjectId,
+        ref:'categories'
     }
 }, {timestamps: true})
 

@@ -1,4 +1,5 @@
 const Product = require('../models/ProductModel')
+const Category = require('../models/CategoryModel')
 const ErrorHandler = require('../utils/errorHandler')
 
 exports.getAllProducts = async (req, res, next) =>{
@@ -32,6 +33,11 @@ exports.getProductById = async(req, res, next)=>{
 
 exports.createProduct = async (req, res, next) =>{
     try {
+        const categoryId = req.body.category
+        const category = await Category.findOne({_id: categoryId })
+        if(!category){
+            return next(new ErrorHandler('Category not found', 404))
+        }
         const data ={
             label: req.body.label,
             description: req.body.description,
@@ -55,6 +61,14 @@ exports.updateProduct = async (req, res, next)=>{
     try {
         const productId = req.params.id
         const currentProduct= await Product.findOne({_id:productId})
+        if(!currentProduct){
+            return next(new ErrorHandler('product doesnt exist', 404))
+        }
+        const categoryId = req.body.category || currentProduct.category
+        const category = await Category.findOne({_id: categoryId })
+        if(!category){
+            return next(new ErrorHandler('Category not found', 404))
+        }
         const data = {
             label: req.body.label || currentProduct.label,
             description: req.body.description || currentProduct.description,
