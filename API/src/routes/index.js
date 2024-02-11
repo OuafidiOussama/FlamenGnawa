@@ -13,4 +13,7 @@ router.use("/products", productRouter);
 const categoryRouter = require("./category");
 router.use("/categories", categoryRouter);
 
+const orderRouter = require("./order");
+router.use("/orders", orderRouter);
+
 module.exports = router;
