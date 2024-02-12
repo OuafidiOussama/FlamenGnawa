@@ -16,4 +16,7 @@ router.use("/categories", categoryRouter);
 const orderRouter = require("./order");
 router.use("/orders", orderRouter);
 
+const eventRouter = require("./event");
+router.use("/events", eventRouter);
+
 module.exports = router;
