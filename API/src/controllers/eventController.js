@@ -54,4 +54,35 @@ exports.createEvent = async (req, res, next) => {
   }
 };
 
+exports.updateEvent = async (req, res, next) => {
+  try {
+    const eventId = req.params.id;
+    if(!mongoose.isValidObjectId(eventId)){
+        return next( new ErrorHandler("Event Id Is not Valid", 403))
+    }
+    const currentEvent = await Event.findOne({ _id: eventId });
+    if (!currentEvent) {
+      return next(new ErrorHandler("event doesnt exist", 404));
+    }
+    const data = {
+      title: req.body.title || currentEvent.title,
+      description: req.body.description || currentEvent.description,
+      eventDate: req.body.eventDate || currentEvent.eventDate,
+      location: req.body.location || currentEvent.location,
+      price: req.body.price || currentEvent.price,
+      tickets: req.body.tickets || currentEvent.tickets,
+    };
+    const updatedEvent = await Event.findOneAndUpdate(
+      { _id: eventId },
+      data,
+      { new: true },
+    )
+    res.status(200).json({
+      success: true,
+      updatedEvent,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
