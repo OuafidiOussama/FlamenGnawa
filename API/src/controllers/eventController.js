@@ -34,3 +34,24 @@ exports.getEventById = async (req, res, next) => {
   }
 };
 
+exports.createEvent = async (req, res, next) => {
+  try {
+    const data = {
+      title: req.body.title,
+      description: req.body.description,
+      eventDate: req.body.eventDate,
+      location: req.body.location,
+      price: req.body.price,
+      tickets: req.body.tickets,
+    };
+    const event = await Event.create(data);
+    res.status(201).json({
+      success: true,
+      event,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
