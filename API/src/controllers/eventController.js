@@ -86,3 +86,21 @@ exports.updateEvent = async (req, res, next) => {
   }
 };
 
+exports.deleteEvent = async (req, res, next) => {
+  try {
+    const eventId = req.params.id;
+    if(!mongoose.isValidObjectId(eventId)){
+        return next( new ErrorHandler("Event Id Is not Valid", 403))
+    }
+    const event = await Event.findOneAndDelete({ _id: eventId });
+    if (!event) {
+      return next(new ErrorHandler("event doesnt exist", 404));
+    }
+    res.status(200).json({
+      success: true,
+      message: "Event deleted successfully !",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
