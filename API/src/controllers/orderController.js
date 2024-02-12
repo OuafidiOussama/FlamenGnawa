@@ -1,7 +1,7 @@
 const Order = require("../models/OrderModel");
-const Product = require("../models/ProductModel");
 const CartItem = require("../models/CartModel");
 const ErrorHandler = require("../utils/errorHandler");
+const mongoose = require("mongoose");
 
 exports.getAllOrders = async (req, res, next) => {
   try {
@@ -20,6 +20,9 @@ exports.getAllOrders = async (req, res, next) => {
 exports.getOrderById = async (req, res, next) => {
   try {
     const orderId = req.params.id;
+    if (!mongoose.isValidObjectId(orderId)) {
+      return next(new ErrorHandler("OrderId Is not Valid", 403));
+    }
     const order = await Order.findById(orderId)
       .populate("user", "first_name last_name")
       .populate({
@@ -79,13 +82,16 @@ exports.createOrder = async (req, res, next) => {
 exports.updateOrder = async (req, res, next) => {
   try {
     const orderId = req.params.id;
+    if (!mongoose.isValidObjectId(orderId)) {
+      return next(new ErrorHandler("OrderId Is not Valid", 403));
+    }
     const currentOrder = await Order.findOne({ _id: orderId });
     if (!currentOrder) {
       return next(new ErrorHandler("order doesnt exist", 404));
     }
     const data = {
-        status: req.body.status || currentOrder.status,
-        deleveryDate: req.body.deleveryDate || currentOrder.deleveryDate,
+      status: req.body.status || currentOrder.status,
+      deleveryDate: req.body.deleveryDate || currentOrder.deleveryDate,
     };
     const order = await Order.findByIdAndUpdate(orderId, data, { new: true });
     if (!order) {
@@ -102,13 +108,17 @@ exports.updateOrder = async (req, res, next) => {
 
 exports.deleteOrder = async (req, res, next) => {
   try {
-    const order = await Order.findByIdAndDelete(req.params.id);
+    const orderId = req.params.id;
+    if (!mongoose.isValidObjectId(orderId)) {
+      return next(new ErrorHandler("OrderId Is not Valid", 403));
+    }
+    const order = await Order.findByIdAndDelete(orderId);
     if (!order) {
       return next(new ErrorHandler("order doesnt exist", 404));
     }
     res.status(200).json({
       success: true,
-      message: "order Deleted Successfully",
+      message: "Order Deleted Successfully",
     });
   } catch (error) {
     next(error);
