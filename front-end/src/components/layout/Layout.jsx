@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <>
+    <div className="bg-dark-purple text-white">
       <Header />
       <main>
         <Suspense fallback={<Loading />}>
           <Outlet />
         </Suspense>
       </main>
-    </>
+    </div>
   );
 }

@@ -4,6 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    colors:{
+      transparent: 'transparent',
+      'black': '#000',
+      'white': '#FFF',
+      'red': '#FC0D0D',
+      'dark-purple' : '#190F1C'
+    },
     fontFamily:{
       'main': ['Lemon'],
       'arabic': ['Lemonada'],
