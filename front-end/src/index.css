@@ -4,7 +4,7 @@
 
 ::-webkit-scrollbar{
     /* position: absolute; */
-    display: none;
+    /* display: none; */
 }
 .white-stroke{
     -webkit-text-stroke: 1px white;
