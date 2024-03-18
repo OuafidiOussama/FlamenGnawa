@@ -48,6 +48,17 @@ export default function HeroSocials() {
           </p>
         </li>
       </a>
+      <a href="https://open.spotify.com/artist/04947wzNph1S7XZrtfBgOI?si=c-l29-PnRqm7vx-jTT_DBg" target="_blank">
+        <li className="w-52 flex cursor-pointer justify-end group overflow-clip group relative">
+          <Icon
+            icon="mdi:spotify"
+            className="group-hover:text-red transition-all duration-300"
+          />
+          <p className="group-hover:-translate-x-36 text-xl w-0 h-0 relative top-0 translate-x-0 translate-y-0.5 right-0 duration-300 transition-all">
+            <span className="text-red">S</span>potify
+          </p>
+        </li>
+      </a>
     </ul>
   );
 }

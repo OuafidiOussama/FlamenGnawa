@@ -5,7 +5,7 @@ import MemberCard from "./MemberCard";
 
 export default function MembersHero() {
   return (
-    <div className="relative w-full uppercase overflow-clip ">
+    <div className="relative w-full uppercase overflow-clip font-description ">
       <div className="w-full h-screen opacity-5">
         <img
           src={membersBackground}

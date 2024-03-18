@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import Header from "../partials/Header";
+import Footer from "../partials/Footer";
 import Loading from "../partials/Loading";
 import { Outlet } from "react-router-dom";
 
@@ -12,6 +13,7 @@ export default function Layout() {
           <Outlet />
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 }
