@@ -4,7 +4,7 @@ import HeroSocials from "./HeroSocials";
 
 export default function LandingHero() {
   return (
-    <div className="w-screen font-main">
+    <div className="w-full h-screen font-main">
       <div className="absolute top-0 w-full h-screen">
         <img src={bg} alt="" className="w-full h-full object-cover" />
       </div>
