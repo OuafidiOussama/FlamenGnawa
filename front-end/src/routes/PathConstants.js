@@ -1,7 +1,9 @@
 const PathConstants = {
   HOME: "/",
-  STORE: "/store",
+  MEMBERS: "/members",
+  SHOP: "/shop",
   BLOG: "/blog",
+  EVENTS: "/events",
 };
 
 export default PathConstants;

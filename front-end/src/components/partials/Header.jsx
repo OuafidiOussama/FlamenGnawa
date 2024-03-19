@@ -31,16 +31,16 @@ export default function Header() {
                 <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.HOME}>home</NavLink>
             </li>
             <li>
-                <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.STORE}>members</NavLink>
+                <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.MEMBERS}>members</NavLink>
             </li>
             <li>
-                <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.BLOG}>shop</NavLink>
+                <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.SHOP}>shop</NavLink>
             </li>
             <li>
                 <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.BLOG}>blog</NavLink>
             </li>
             <li>
-                <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.BLOG}>events</NavLink>
+                <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.EVENTS}>events</NavLink>
             </li>
             <button className='rounded-full py-2 px-8 bg-red'>LOGIN</button>
         </ul>

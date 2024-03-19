@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound";
 import routes from "./routes";
 
 function App() {
+
   const router = createBrowserRouter([{
     element: <Layout />,
     errorElement: <NotFound />,
