@@ -9,7 +9,8 @@ module.exports = {
       'black': '#000',
       'white': '#FFF',
       'red': '#FC0D0D',
-      'dark-purple' : '#190F1C'
+      'dark-purple' : '#190F1C',
+      'pink': '#ea8290'
     },
     fontFamily:{
       'main': ['Lemon'],

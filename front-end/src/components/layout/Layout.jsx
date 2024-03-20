@@ -2,18 +2,21 @@ import React, { Suspense } from "react";
 import Header from "../partials/Header";
 import Footer from "../partials/Footer";
 import Loading from "../partials/Loading";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function Layout() {
+  const location = useLocation()
+  const hideComponentsRoutes = ["/login"] 
+  const shouldHideComponent = hideComponentsRoutes.includes(location.pathname)
   return (
     <div className="bg-dark-purple text-white">
-      <Header />
+      {!shouldHideComponent && <Header />}
       <main>
         <Suspense fallback={<Loading />}>
           <Outlet />
         </Suspense>
       </main>
-      <Footer />
+      {!shouldHideComponent && <Footer />}
     </div>
   );
 }

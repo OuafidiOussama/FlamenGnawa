@@ -6,6 +6,7 @@ const Members = React.lazy(() => import("../pages/Members"));
 const Shop = React.lazy(() => import("../pages/Store"));
 const Blog = React.lazy(() => import("../pages/Blog"));
 const Events = React.lazy(() => import("../pages/Events"));
+const Login = React.lazy(() => import("../pages/Login"));
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
   {
     path: PathConstants.EVENTS,
     element: <Events />,
+  },
+  {
+    path: PathConstants.LOGIN,
+    element: <Login />,
   },
 ];
 

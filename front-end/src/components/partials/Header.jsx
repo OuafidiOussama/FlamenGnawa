@@ -42,7 +42,10 @@ export default function Header() {
             <li>
                 <NavLink className={({isActive})=> (isActive ? 'bg-white text-red py-2 px-4 rounded-md' : 'py-2 px-4 rounded-md' )} to={PathConstants.EVENTS}>events</NavLink>
             </li>
-            <button className='rounded-full py-2 px-8 bg-red'>LOGIN</button>
+            <li>
+                <NavLink to={PathConstants.LOGIN}><button className='rounded-full py-2 px-8 bg-red'>LOGIN</button></NavLink>
+            </li>
+            
         </ul>
     </nav>
   )
