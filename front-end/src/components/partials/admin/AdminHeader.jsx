@@ -22,7 +22,7 @@ export default function AdminHeader() {
         >
           <Icon icon="material-symbols:menu" className="h-9 w-9" />
         </button>
-        <p className="font-main text-2xl ">
+        <p className="font-main text-xl ">
           <span className="text-red">F</span>lameGnawa
         </p>
       </div>
@@ -30,8 +30,8 @@ export default function AdminHeader() {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "flex items-center text-2xl font-bold gap-5 p-2 w-screen bg-red/50 "
-              : "flex items-center text-2xl font-bold gap-5 p-2 w-screen"
+              ? "flex items-center text-xl font-bold gap-5 p-2 w-screen bg-red/50 "
+              : "flex items-center text-xl font-bold gap-5 p-2 w-screen"
           }
           to={PathConstants.DASHBOARD}
         >
@@ -41,8 +41,8 @@ export default function AdminHeader() {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "flex items-center text-2xl font-bold gap-5 p-2 w-screen bg-red/50 "
-              : "flex items-center text-2xl font-bold gap-5 p-2 w-screen"
+              ? "flex items-center text-xl font-bold gap-5 p-2 w-screen bg-red/50 "
+              : "flex items-center text-xl font-bold gap-5 p-2 w-screen"
           }
           to={PathConstants.MEMBERS_TABLE}
         >
@@ -52,8 +52,8 @@ export default function AdminHeader() {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "flex items-center text-2xl font-bold gap-5 p-2 w-screen bg-red/50 "
-              : "flex items-center text-2xl font-bold gap-5 p-2 w-screen"
+              ? "flex items-center text-xl font-bold gap-5 p-2 w-screen bg-red/50 "
+              : "flex items-center text-xl font-bold gap-5 p-2 w-screen"
           }
           to={PathConstants.EVENTS_TABLE}
         >
@@ -63,8 +63,8 @@ export default function AdminHeader() {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "flex items-center text-2xl font-bold gap-5 p-2 w-screen bg-red/50 "
-              : "flex items-center text-2xl font-bold gap-5 p-2 w-screen"
+              ? "flex items-center text-xl font-bold gap-5 p-2 w-screen bg-red/50 "
+              : "flex items-center text-xl font-bold gap-5 p-2 w-screen"
           }
           to={PathConstants.BLOG_TABLE}
         >
@@ -74,8 +74,8 @@ export default function AdminHeader() {
         <NavLink
           className={({ isActive }) =>
             isActive
-              ? "flex items-center text-2xl font-bold gap-5 p-2 w-screen bg-red/50 "
-              : "flex items-center text-2xl font-bold gap-5 p-2 w-screen"
+              ? "flex items-center text-xl font-bold gap-5 p-2 w-screen bg-red/50 "
+              : "flex items-center text-xl font-bold gap-5 p-2 w-screen"
           }
           to={PathConstants.SHOP_TABLE}
         >
@@ -83,7 +83,7 @@ export default function AdminHeader() {
           SHOP
         </NavLink>
         <div className="absolute bottom-0 w-full">
-          <button className="flex items-center gap-6 w-screen px-3 py-3 hover:bg-red/50 text-2xl font-bold transition-all duration-300">
+          <button className="flex items-center gap-6 w-screen px-3 py-3 hover:bg-red/50 text-xl font-bold transition-all duration-300">
             <Icon icon="streamline:logout-1-solid" className="text-3xl" />
             LOGOUT
           </button>
