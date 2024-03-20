@@ -48,7 +48,6 @@ export default function ProductDetails() {
             <CitiesInput />
           </div>
           <button className="w-full text-center border-2 py-3 hover:bg-dark-purple hover:border-transparent hover:text-white rounded-full transition-all duration-300">Add To Cart</button>
-          {/* <button></button> */}
         </div>
       </div>
       <RelatedProductsContainer />

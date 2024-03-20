@@ -2,13 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar{
-    /* position: absolute; */
-    /* display: none; */
+::-webkit-scrollbar {
+  /* position: absolute; */
+  /* display: none; */
 }
-.white-stroke{
-    -webkit-text-stroke: 1px white;
+.white-stroke {
+  -webkit-text-stroke: 1px white;
 }
-.red-stroke{
-    -webkit-text-stroke: 2px #FC0D0D;
+.red-stroke {
+  -webkit-text-stroke: 2px #fc0d0d;
+}
+
+.flip {
+  perspective: 600px;
+}
+
+.flip-content {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+.flip .flip-content {
+  transform: rotateY(0deg);
+  transition: transform 0.8s;
+}
+
+.flip.flipped .flip-content {
+  transform: rotateY(180deg);
+  transition: transform 0.8s;
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
 }
