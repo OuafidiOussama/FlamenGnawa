@@ -10,6 +10,11 @@ const Login = React.lazy(() => import("../pages/auth/Login"));
 const Register = React.lazy(() => import("../pages/auth/Register"));
 const ProductDetails = React.lazy(() => import("../pages/shop/ProductDetails"));
 const ArticleDetails = React.lazy(() => import("../pages/blogs/ArticleDetails"));
+const Dashboard = React.lazy(() => import("../pages/admin/Dashboard"));
+const BlogTable = React.lazy(() => import("../pages/admin/blog/BlogTable"));
+const EventsTable = React.lazy(() => import("../pages/admin/events/EventsTable"));
+const MembersTable = React.lazy(() => import("../pages/admin/members/MembersTable"));
+const ShopTable = React.lazy(() => import("../pages/admin/shop/ShopTable"));
 
 const routes = [
   {
@@ -47,6 +52,26 @@ const routes = [
   {
     path: PathConstants.REGISTER,
     element: <Register />,
+  },
+  {
+    path: PathConstants.DASHBOARD,
+    element: <Dashboard />,
+  },
+  {
+    path: PathConstants.BLOG_TABLE,
+    element: <BlogTable />,
+  },
+  {
+    path: PathConstants.EVENTS_TABLE,
+    element: <EventsTable />,
+  },
+  {
+    path: PathConstants.MEMBERS_TABLE,
+    element: <MembersTable />,
+  },
+  {
+    path: PathConstants.SHOP_TABLE,
+    element: <ShopTable />,
   },
 ];
 
