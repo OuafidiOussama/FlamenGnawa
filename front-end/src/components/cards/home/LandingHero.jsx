@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../../assets/hero.png";
+import bg from "../../../assets/hero.png";
 import HeroSocials from "./HeroSocials";
 
 export default function LandingHero() {

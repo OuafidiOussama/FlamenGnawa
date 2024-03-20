@@ -1,5 +1,5 @@
 import React from "react";
-import ProductsContainer from "../components/containers/ProductsContainer";
+import ProductsContainer from "../../components/containers/shop/ProductsContainer";
 
 export default function Store() {
   return (

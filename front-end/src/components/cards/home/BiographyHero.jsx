@@ -1,7 +1,7 @@
 import React from "react";
-import biographyBackground from "../../assets/biography.png";
-import picture from "../../assets/Final.png";
-import Flamengnawa from "../../assets/flamengnawa.png";
+import biographyBackground from "../../../assets/biography.png";
+import picture from "../../../assets/Final.png";
+import Flamengnawa from "../../../assets/flamengnawa.png";
 import { useNavigate } from "react-router-dom";
 
 export default function BiographyHero() {

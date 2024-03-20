@@ -54,7 +54,7 @@ export default function HeroSocials() {
             icon="mdi:spotify"
             className="group-hover:text-red transition-all duration-300"
           />
-          <p className="group-hover:-translate-x-36 text-xl w-0 h-0 relative top-0 translate-x-0 translate-y-0.5 right-0 duration-300 transition-all">
+          <p className="group-hover:-translate-x-32 text-xl w-0 h-0 relative top-0 translate-x-0 translate-y-0.5 right-0 duration-300 transition-all">
             <span className="text-red">S</span>potify
           </p>
         </li>

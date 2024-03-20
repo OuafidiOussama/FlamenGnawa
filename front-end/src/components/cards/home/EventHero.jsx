@@ -1,7 +1,7 @@
 import React from "react";
-import eventBackground from "../../assets/events.png";
+import eventBackground from "../../../assets/events.png";
 import { Icon } from "@iconify/react";
-import cover from "../../assets/cover.jpg"
+import cover from "../../../assets/cover.jpg"
 
 export default function EventHero() {
   return (

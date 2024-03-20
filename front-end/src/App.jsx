@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/error/NotFound";
 import routes from "./routes";
 
 function App() {

@@ -1,5 +1,5 @@
 import React from "react";
-import membersBackground from "../../assets/flamengnawa.png";
+import membersBackground from "../../../assets/flamengnawa.png";
 
 export default function MemberCard() {
   return (

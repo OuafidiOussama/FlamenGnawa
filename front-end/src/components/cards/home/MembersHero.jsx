@@ -1,6 +1,6 @@
 import React from "react";
-import membersBackground from "../../assets/flamengnawa.png";
-import MemberCard from "./MemberCard";
+import membersBackground from "../../../assets/flamengnawa.png";
+import MemberCard from "../members/MemberCard";
 
 
 export default function MembersHero() {

@@ -1,5 +1,5 @@
 import React from "react";
-import bass from "../../assets/bass1.png";
+import bass from "../../../assets/bass1.png";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductCard() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import {cities} from '../../assets/cities'
+import {cities} from '../../../assets/cities'
 
 export default function CitiesInput() {
   return (

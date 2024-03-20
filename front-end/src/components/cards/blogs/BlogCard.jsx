@@ -1,5 +1,5 @@
 import React from "react";
-import cover from "../../assets/flamengnawaNew.png";
+import cover from "../../../assets/flamengnawaNew.png";
 import {useNavigate} from 'react-router-dom'
 
 export default function BlogCard() {

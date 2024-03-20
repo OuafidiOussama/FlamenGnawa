@@ -1,5 +1,5 @@
 import React from "react";
-import poster from "../../assets/cover.jpg";
+import poster from "../../../assets/cover.jpg";
 import { Icon } from "@iconify/react";
 
 export default function EventCard({ isFlipped, handleFlip }) {

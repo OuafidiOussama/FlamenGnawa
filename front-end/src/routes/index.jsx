@@ -1,15 +1,15 @@
 import React from "react";
 import PathConstants from "./PathConstants";
 
-const Home = React.lazy(() => import("../pages/Home"));
-const Members = React.lazy(() => import("../pages/Members"));
-const Shop = React.lazy(() => import("../pages/Store"));
-const Blog = React.lazy(() => import("../pages/Blog"));
-const Events = React.lazy(() => import("../pages/Events"));
-const Login = React.lazy(() => import("../pages/Login"));
-const Register = React.lazy(() => import("../pages/Register"));
-const ProductDetails = React.lazy(() => import("../pages/ProductDetails"));
-const ArticleDetails = React.lazy(() => import("../pages/ArticleDetails"));
+const Home = React.lazy(() => import("../pages/home/Home"));
+const Members = React.lazy(() => import("../pages/members/Members"));
+const Shop = React.lazy(() => import("../pages/shop/Store"));
+const Blog = React.lazy(() => import("../pages/blogs/Blog"));
+const Events = React.lazy(() => import("../pages/events/Events"));
+const Login = React.lazy(() => import("../pages/auth/Login"));
+const Register = React.lazy(() => import("../pages/auth/Register"));
+const ProductDetails = React.lazy(() => import("../pages/shop/ProductDetails"));
+const ArticleDetails = React.lazy(() => import("../pages/blogs/ArticleDetails"));
 
 const routes = [
   {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import RelatedProductsContainer from "../components/containers/RelatedProductsContainer";
-import bass from "../assets/bass1.png";
+import RelatedProductsContainer from "../../components/containers/shop/RelatedProductsContainer";
+import bass from "../../assets/bass1.png";
 import {Icon} from '@iconify/react'
-import CitiesInput from "../components/containers/CitiesInput";
+import CitiesInput from "../../components/containers/shop/CitiesInput";
 
 export default function ProductDetails() {
   const [qty, setQty] = useState(1)

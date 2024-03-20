@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/Final.png";
+import logo from "../../../assets/Final.png";
 
 export default function CommentCard() {
   return (

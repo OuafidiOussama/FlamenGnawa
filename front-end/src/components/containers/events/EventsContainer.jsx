@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import EventCard from '../cards/EventCard'
+import EventCard from '../../cards/events/EventCard'
 
 export default function EventsContainer() {
   const [isFlipped, setFlipped] = useState(false);

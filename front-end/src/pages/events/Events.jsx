@@ -1,5 +1,5 @@
 import React from "react";
-import EventsContainer from "../components/containers/EventsContainer";
+import EventsContainer from "../../components/containers/events/EventsContainer";
 
 export default function Events() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import cover from "../assets/flamengnawaNew.png";
-import CommentsContainer from "../components/containers/CommentsContainer";
+import cover from "../../assets/flamengnawaNew.png";
+import CommentsContainer from "../../components/containers/blogs/CommentsContainer";
 
 export default function ArticleDetails() {
   return (

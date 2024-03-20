@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import bg from "../assets/flamengnawa_merch.png";
+import bg from "../../assets/flamengnawa_merch.png";
 import { TextField } from "@mui/material";
 import { Icon } from "@iconify/react";
 import { NavLink } from "react-router-dom";
-import PathConstants from "../routes/PathConstants";
+import PathConstants from "../../routes/PathConstants";
 
 export default function Login() {
   const [isPasswordVisible, setPasswordVisibility] = useState(false);

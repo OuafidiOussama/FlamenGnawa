@@ -1,5 +1,5 @@
 import React from 'react'
-import CommentCard from '../cards/CommentCard'
+import CommentCard from '../../cards/blogs/CommentCard'
 
 
 export default function CommentsContainer() {

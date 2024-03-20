@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogsContainer from '../components/containers/BlogsContainer'
+import BlogsContainer from '../../components/containers/blogs/BlogsContainer'
 
 export default function Blog() {
   return (
