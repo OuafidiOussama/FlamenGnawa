@@ -9,6 +9,7 @@ const Events = React.lazy(() => import("../pages/Events"));
 const Login = React.lazy(() => import("../pages/Login"));
 const Register = React.lazy(() => import("../pages/Register"));
 const ProductDetails = React.lazy(() => import("../pages/ProductDetails"));
+const ArticleDetails = React.lazy(() => import("../pages/ArticleDetails"));
 
 const routes = [
   {
@@ -30,6 +31,10 @@ const routes = [
   {
     path: PathConstants.BLOG,
     element: <Blog />,
+  },
+  {
+    path: `${PathConstants.BLOG}/:articleId`,
+    element: <ArticleDetails />,
   },
   {
     path: PathConstants.EVENTS,
