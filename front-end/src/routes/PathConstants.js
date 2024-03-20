@@ -5,6 +5,7 @@ const PathConstants = {
   BLOG: "/blog",
   EVENTS: "/events",
   LOGIN: "/login",
+  REGISTER: "/register",
 };
 
 export default PathConstants;

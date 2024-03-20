@@ -6,8 +6,8 @@ import { Outlet, useLocation } from "react-router-dom";
 
 export default function Layout() {
   const location = useLocation()
-  const hideComponentsRoutes = ["/login"] 
-  const shouldHideComponent = hideComponentsRoutes.includes(location.pathname)
+  const hideComponentsRoutes = ["/login","/register"] 
+  const shouldHideComponent = hideComponentsRoutes.includes(location.pathname.toLowerCase())
   return (
     <div className="bg-dark-purple text-white">
       {!shouldHideComponent && <Header />}
