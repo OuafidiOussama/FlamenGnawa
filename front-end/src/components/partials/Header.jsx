@@ -11,7 +11,7 @@ export default function Header() {
         setIsMenuOpen(!isMenuOpen);
       };
   return (
-    <nav className={`transparent font-main w-full h-20 flex flex-col gap-5 md:gap-0 py-4 md:py-0 md:flex-row justify-start  md:items-center md:px-10 flex-no-wrap relative shadow-md shadow-black/5 md:flex-wrap md:justify-between`}>
+    <nav className={`transparent font-main w-full h-20 flex flex-col gap-5 md:gap-0 py-4 md:py-0 md:flex-row justify-start  md:items-center md:px-10 flex-no-wrap relative shadow-md shadow-white/5 md:flex-wrap md:justify-between`}>
         <div className="flex z-10">
             <button
             className="block border-0 bg-transparent px-2 text-white md:hidden"

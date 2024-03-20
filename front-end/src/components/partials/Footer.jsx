@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 
 export default function Footer() {
   return (
-    <div className="bg-black h-20 w-full flex items-center justify-between px-10 font-main">
+    <div className="bg-dark-purple h-20 w-full flex items-center justify-between px-10 font-main">
       <NavLink
         className="flex items-center gap-3 font-black text-3xl"
         to={PathConstants.HOME}

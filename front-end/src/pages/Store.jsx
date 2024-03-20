@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../components/cards/ProductCard";
+import ProductsContainer from "../components/containers/ProductsContainer";
 
 export default function Store() {
   return (
@@ -9,15 +9,7 @@ export default function Store() {
           Shop
         </p>
       </div>
-      <div className=" py-10 flex flex-wrap justify-center gap-10">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      <ProductsContainer />
     </div>
   );
 }

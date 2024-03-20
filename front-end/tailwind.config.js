@@ -12,7 +12,8 @@ module.exports = {
       'dark-purple' : '#190F1C',
       'pink': '#ea8290',
       'in-stock': '#16a34a',
-      'out-of-stock': '#cc0000'
+      'out-of-stock': '#cc0000',
+      'border': '#DCDCDC'
     },
     fontFamily:{
       'main': ['Lemon'],
