@@ -10,7 +10,9 @@ module.exports = {
       'white': '#FFF',
       'red': '#FC0D0D',
       'dark-purple' : '#190F1C',
-      'pink': '#ea8290'
+      'pink': '#ea8290',
+      'in-stock': '#16a34a',
+      'out-of-stock': '#cc0000'
     },
     fontFamily:{
       'main': ['Lemon'],
