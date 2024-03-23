@@ -82,6 +82,17 @@ export default function AdminHeader() {
           <Icon icon="mdi:cart" className="text-4xl" />
           SHOP
         </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "flex items-center text-xl font-bold gap-5 p-2 w-screen bg-red/50 "
+              : "flex items-center text-xl font-bold gap-5 p-2 w-screen"
+          }
+          to={PathConstants.CATEGORIES_TABLE}
+        >
+          <Icon icon="material-symbols:category" className="text-4xl" />
+          CATEGORIES
+        </NavLink>
         <div className="absolute bottom-0 w-full">
           <button className="flex items-center gap-6 w-screen px-3 py-3 hover:bg-red/50 text-xl font-bold transition-all duration-300">
             <Icon icon="streamline:logout-1-solid" className="text-3xl" />

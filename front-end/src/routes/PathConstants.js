@@ -11,6 +11,7 @@ const PathConstants = {
   EVENTS_TABLE: '/events_table',
   BLOG_TABLE: '/blog_table',
   SHOP_TABLE: '/shop_table',
+  CATEGORIES_TABLE: '/categories_table',
 };
 
 export default PathConstants;

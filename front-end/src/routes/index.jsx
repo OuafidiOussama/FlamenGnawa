@@ -15,6 +15,7 @@ const BlogTable = React.lazy(() => import("../pages/admin/blog/BlogTable"));
 const EventsTable = React.lazy(() => import("../pages/admin/events/EventsTable"));
 const MembersTable = React.lazy(() => import("../pages/admin/members/MembersTable"));
 const ShopTable = React.lazy(() => import("../pages/admin/shop/ShopTable"));
+const CategoriesTable = React.lazy(() => import("../pages/admin/categories/CategoriesTable"));
 
 const routes = [
   {
@@ -72,6 +73,10 @@ const routes = [
   {
     path: PathConstants.SHOP_TABLE,
     element: <ShopTable />,
+  },
+  {
+    path: PathConstants.CATEGORIES_TABLE,
+    element: <CategoriesTable />,
   },
 ];
 

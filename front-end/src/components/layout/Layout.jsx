@@ -9,7 +9,7 @@ import AdminHeader from '../partials/admin/AdminHeader'
 export default function Layout() {
   const location = useLocation();
   const hideComponentsRoutes = ["/login", "/register"];
-  const adminRoutes = ["/dashboard", '/blog_table', '/members_table', '/shop_table', '/events_table'];
+  const adminRoutes = ["/dashboard", '/blog_table', '/members_table', '/shop_table', '/events_table', '/categories_table'];
   const isAdmin = adminRoutes.includes(location.pathname.toLowerCase());
   const shouldHideComponent = hideComponentsRoutes.includes(
     location.pathname.toLowerCase()
