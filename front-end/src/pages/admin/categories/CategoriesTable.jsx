@@ -1,15 +1,15 @@
 import { Icon } from '@iconify/react'
 import React from 'react'
-import EventsCard from '../../../components/admin/cards/EventsCard'
+import CategoryCard from '../../../components/admin/cards/CategoryCard'
 
-export default function EventsTable() {
+export default function CategoriesTable() {
   return (
     <div className="px-10 py-5 h-screen overflow-hidden">
       <div className="bg-border/20 h-full rounded-xl flex flex-col p-3 gap-5">
-        <div className="border-b-4 py-1 border-border h-14 pr- flex justify-between">
-          <p className="font-bold text-4xl capitalize">Events</p>
+        <div className="border-b-4 py-1 border-border h-14 flex justify-between">
+          <p className="font-bold text-4xl capitalize">categories</p>
           <button className="flex items-center gap-2 bg-purple text-white py-2 px-5 rounded">
-            <Icon icon="basil:add-solid" className="text-2xl" /> Add Event
+            <Icon icon="basil:add-solid" className="text-2xl" /> Add Category
           </button>
         </div>
 
@@ -18,17 +18,13 @@ export default function EventsTable() {
             <thead className="border-white border-b-2 h-10">
               <tr>
                 <th className="w-20">Picture</th>
-                <th className="w-20 text-center">title</th>
-                <th className="w-52 overflow-hidden">Desciption</th>
-                <th className="w-20">Date</th>
-                <th className="w-20">Time</th>
-                <th className="w-20">Location</th>
-                <th className="w-20">Price</th>
+                <th className="w-40 text-center">Name</th>
+                <th className="w-96 overflow-hidden">Description</th>
                 <th className="w-20">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <EventsCard />
+              <CategoryCard />
             </tbody>
           </table>
         </div>

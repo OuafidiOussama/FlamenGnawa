@@ -6,7 +6,7 @@ export default function Dashboard() {
     <div className="px-10 py-5 h-full">
       <div className="bg-border/20 h-full rounded-xl overflow-clip p-3">
         <div className="border-b-4 border-border pb-2 flex justify-between">
-          <p className="font-bold text-4xl">Dashboard</p>
+          <p className="font-bold text-4xl capitalize">Dashboard</p>
         </div>
         <div className="flex justify-between p-2 pb-5">
           <Card

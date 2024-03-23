@@ -8,7 +8,7 @@ export default function MembersTable() {
     <div className="px-10 py-5 h-screen overflow-hidden">
       <div className="bg-border/20 h-full rounded-xl flex flex-col p-3 gap-5">
         <div className="border-b-4 py-1 border-border h-14 flex justify-between">
-          <p className="font-bold text-4xl">Members</p>
+          <p className="font-bold text-4xl capitalize">Members</p>
           <button className="flex items-center gap-2 bg-purple text-white py-2 px-5 rounded">
             <Icon icon="basil:add-solid" className="text-2xl" /> Add Member
           </button>
