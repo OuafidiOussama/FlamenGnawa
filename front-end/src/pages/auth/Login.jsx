@@ -1,11 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import bg from "../../assets/flamengnawa_merch.png";
 import { TextField } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import PathConstants from "../../routes/PathConstants";
+import { useFormik } from "formik";
+import { loginSchema } from "../../validators/authValidation";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../redux/slices/authSlice";
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Login() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const {loading, isAuthenticated, user} = useSelector(state=>state.auth)
+  useEffect(()=>{
+    if(isAuthenticated){
+      if(user.role === 'super'){
+        navigate('/dashboard')
+    }else{
+        navigate('/')
+    }
+    }
+  })
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: loginSchema,
+    onSubmit: (values, actions) => {
+      dispatch(login(values));
+      actions.resetForm();
+    },
+  });
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
   const toggleVisibility = () => {
     setPasswordVisibility(!isPasswordVisible);
@@ -24,21 +52,38 @@ export default function Login() {
           <p className="text-dark-purple font-bold text-5xl uppercase">
             <span className="text-red">L</span>ogin
           </p>
-          <form className="w-full h-full flex flex-col justify-center gap-6">
+          <form
+            onSubmit={formik.handleSubmit}
+            className="w-full h-full flex flex-col justify-center gap-6"
+          >
             <TextField
               id="email"
+              name="email"
               label="Email"
               variant="standard"
               color="secondary"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
             />
             <div className="w-full relative">
               <TextField
                 fullWidth
                 id="password"
+                name="password"
                 label="Password"
                 variant="standard"
                 color="secondary"
                 type={isPasswordVisible ? "text" : "password"}
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
               />
               <Icon
                 onClick={toggleVisibility}
@@ -49,11 +94,14 @@ export default function Login() {
             <div className="w-full flex justify-between items-center">
               <p className="text-black font-thin text-xs">
                 don't have an account?{" "}
-                <NavLink to={PathConstants.REGISTER} className="underline hover:text-red dduration-300 transition-all">
+                <NavLink
+                  to={PathConstants.REGISTER}
+                  className="underline hover:text-red dduration-300 transition-all"
+                >
                   Register
                 </NavLink>
               </p>
-              <button className="bg-red h-10 w-40 rounded-lg">Login</button>
+              <button className="bg-red h-10 w-40 rounded-lg" type='submit'>{loading ? <CircularProgress /> : 'Login'}</button>
             </div>
           </form>
         </div>

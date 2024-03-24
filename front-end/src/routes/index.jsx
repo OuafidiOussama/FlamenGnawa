@@ -16,6 +16,7 @@ const EventsTable = React.lazy(() => import("../pages/admin/events/EventsTable")
 const MembersTable = React.lazy(() => import("../pages/admin/members/MembersTable"));
 const ShopTable = React.lazy(() => import("../pages/admin/shop/ShopTable"));
 const CategoriesTable = React.lazy(() => import("../pages/admin/categories/CategoriesTable"));
+const AdminRoute = React.lazy(() => import("../hocs/AdminRoutes"));
 
 const routes = [
   {
@@ -56,27 +57,27 @@ const routes = [
   },
   {
     path: PathConstants.DASHBOARD,
-    element: <Dashboard />,
+    element: <AdminRoute children={<Dashboard />} />,
   },
   {
     path: PathConstants.BLOG_TABLE,
-    element: <BlogTable />,
+    element: <AdminRoute children={<BlogTable />} />,
   },
   {
     path: PathConstants.EVENTS_TABLE,
-    element: <EventsTable />,
+    element: <AdminRoute children={<EventsTable />} />,
   },
   {
     path: PathConstants.MEMBERS_TABLE,
-    element: <MembersTable />,
+    element: <AdminRoute children={<MembersTable />} />,
   },
   {
     path: PathConstants.SHOP_TABLE,
-    element: <ShopTable />,
+    element: <AdminRoute children={<ShopTable />} />,
   },
   {
     path: PathConstants.CATEGORIES_TABLE,
-    element: <CategoriesTable />,
+    element: <AdminRoute children={<CategoriesTable />} />,
   },
 ];
 
