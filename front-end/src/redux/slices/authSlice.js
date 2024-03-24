@@ -44,6 +44,24 @@ export const register = createAsyncThunk(
   }
 );
 
+export const logout = createAsyncThunk(
+  "/user/logout",
+  async (thunkAPI) => {
+    try {
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
+      toast.success("Logout Successfull");
+      setTimeout(()=>{
+        window.location.reload()
+      }, 1000)
+    } catch (error) {
+      const errorMessage = await extractErrorMessage(error.response.data);
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
 const authSlice = createSlice({
   name: "auth",
   initialState,

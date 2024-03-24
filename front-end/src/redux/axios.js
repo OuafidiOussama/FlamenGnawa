@@ -1,9 +1,9 @@
 import axios from "axios";
 
 function extractToken(){
-    const userInfo = localStorage.getItem('userInfo')
-    if(userInfo){
-        const {jwtToken} = JSON.parse(userInfo)
+    const token = localStorage.getItem('token')
+    if(token){
+        const jwtToken = JSON.parse(token)
         return jwtToken
     }
 }

@@ -2,12 +2,19 @@ import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import PathConstants from "../../../routes/PathConstants";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/slices/authSlice";
 
 export default function AdminHeader() {
+  const dispatch = useDispatch()
   const [isOpen, setHeader] = useState(true);
+
   const toggleHeader = () => {
     setHeader(!isOpen);
   };
+  const handleLogout = () =>{
+    dispatch(logout())
+  }
   return (
     <div
       className={`${
@@ -94,7 +101,7 @@ export default function AdminHeader() {
           CATEGORIES
         </NavLink>
         <div className="absolute bottom-0 w-full">
-          <button className="flex items-center gap-6 w-screen px-3 py-3 hover:bg-red/50 text-xl font-bold transition-all duration-300">
+          <button onClick={handleLogout} className="flex items-center gap-6 w-screen px-3 py-3 hover:bg-red/50 text-xl font-bold transition-all duration-300">
             <Icon icon="streamline:logout-1-solid" className="text-3xl" />
             LOGOUT
           </button>
