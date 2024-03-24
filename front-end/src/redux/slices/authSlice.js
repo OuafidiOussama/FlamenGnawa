@@ -1,30 +1,48 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import userServices from "../services/user.service";
 import { toast } from "react-toastify";
+import { extractErrorMessage } from "../../helpers/ErrorExtractor";
 
 const initialState = {
   loading: false,
-  isAuthenticated: localStorage.getItem('user') ? true : false,
-  user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
+  isSuccessfull: false,
+  isAuthenticated: localStorage.getItem("user") ? true : false,
+  token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token")) : null,
+  user: localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : null,
 };
 
 export const login = createAsyncThunk("/user/login", async (data, thunkAPI) => {
   try {
     const res = await userServices.login(data);
-    console.log(res.data);
-    if (res.statusText !== 'OK') {
-      toast.error('Wrong Email Or Password')
-      throw new Error('Wrong Email Or Password');
-    }
-    const userData = res.data.user;
-    localStorage.setItem('user', JSON.stringify(userData  ))
-    toast.success('Loggin Successfull')
+
+    const userData = res.data;
+    localStorage.setItem("user", JSON.stringify(userData.user));
+    localStorage.setItem("token", JSON.stringify(userData.jwtToken));
+    toast.success("Loggin Successfull");
     return userData;
   } catch (error) {
-    toast.error('Wrong Email Or Password')
+    const errorMessage = await extractErrorMessage(error.response.data);
+    toast.error(errorMessage);
     return thunkAPI.rejectWithValue({ error: error.message });
   }
 });
+
+export const register = createAsyncThunk(
+  "/user/register",
+  async (data, thunkAPI) => {
+    try {
+      let res = await userServices.register(data);
+      toast.success("Registration Successfull");
+      return res;
+    } catch (error) {
+      const errorMessage = await extractErrorMessage(error.response.data);
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
@@ -32,13 +50,25 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(register.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(register.fulfilled, (state, action) => {
+        state.loading = false;
+        state.isSuccessfull = true;
+      })
+      .addCase(register.rejected, (state) => {
+        state.loading = false;
+        state.isSuccessfull = false;
+      })
       .addCase(login.pending, (state) => {
         state.loading = true;
       })
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state, {payload}) => {
         state.loading = false;
         state.isAuthenticated = true;
-        state.user = action.payload;
+        state.user = payload.user;
+        state.token = payload.jwtToken;
       })
       .addCase(login.rejected, (state) => {
         state.loading = false;

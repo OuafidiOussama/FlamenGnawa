@@ -9,8 +9,8 @@ exports.register = async (req, res, next) => {
     next(new ErrorHandler("Email Already Registered", 400));
   }
   const data = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
+    first_name: req.body.firstName,
+    last_name: req.body.lastName,
     profile_picture: req.body.profile_picture,
     email: req.body.email,
     password: req.body.password,

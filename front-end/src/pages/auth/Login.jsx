@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import bg from "../../assets/flamengnawa_merch.png";
 import { TextField } from "@mui/material";
 import { Icon } from "@iconify/react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import PathConstants from "../../routes/PathConstants";
 import { useFormik } from "formik";
 import { loginSchema } from "../../validators/authValidation";
@@ -13,7 +13,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
   const { loading, isAuthenticated, user } = useSelector((state) => state.auth);
+  const { email } = location.state || {};
+
   useEffect(() => {
     if (isAuthenticated) {
       if (user.role === "super") {
@@ -23,10 +27,11 @@ export default function Login() {
       }
     }
   });
+
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: email || "", 
+      password:"",
     },
     validationSchema: loginSchema,
     onSubmit: (values, actions) => {
