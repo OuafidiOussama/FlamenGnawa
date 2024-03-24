@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 const initialState = {
   loading: false,
-  isAuthenticated: false,
+  isAuthenticated: localStorage.getItem('user') ? true : false,
   user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
 };
 

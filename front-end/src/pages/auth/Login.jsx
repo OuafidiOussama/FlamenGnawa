@@ -8,21 +8,21 @@ import { useFormik } from "formik";
 import { loginSchema } from "../../validators/authValidation";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/slices/authSlice";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Login() {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const {loading, isAuthenticated, user} = useSelector(state=>state.auth)
-  useEffect(()=>{
-    if(isAuthenticated){
-      if(user.role === 'super'){
-        navigate('/dashboard')
-    }else{
-        navigate('/')
+  const navigate = useNavigate();
+  const { loading, isAuthenticated, user } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (isAuthenticated) {
+      if (user.role === "super") {
+        navigate("/dashboard");
+      } else {
+        navigate("/");
+      }
     }
-    }
-  })
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -101,7 +101,9 @@ export default function Login() {
                   Register
                 </NavLink>
               </p>
-              <button className="bg-red h-10 w-40 rounded-lg" type='submit'>{loading ? <CircularProgress /> : 'Login'}</button>
+              <button className="bg-red h-10 w-40 rounded-lg" type="submit">
+                {loading ? <CircularProgress /> : "Login"}
+              </button>
             </div>
           </form>
         </div>
