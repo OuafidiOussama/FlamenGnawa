@@ -4,12 +4,24 @@ import Footer from "../partials/Footer";
 import Loading from "../partials/Loading";
 import { Outlet, useLocation } from "react-router-dom";
 
-import AdminHeader from '../partials/admin/AdminHeader'
+import AdminHeader from "../partials/admin/AdminHeader";
 
 export default function Layout() {
   const location = useLocation();
   const hideComponentsRoutes = ["/login", "/register"];
-  const adminRoutes = ["/dashboard", '/blog_table', '/members_table', '/shop_table', '/events_table', '/categories_table'];
+  const adminRoutes = [
+    "/dashboard",
+    "/blog_table",
+    "/members_table",
+    "/shop_table",
+    "/events_table",
+    "/categories_table",
+    "/blog_form",
+    "/members_form",
+    "/shop_form",
+    "/events_form",
+    "/categories_form",
+  ];
   const isAdmin = adminRoutes.includes(location.pathname.toLowerCase());
   const shouldHideComponent = hideComponentsRoutes.includes(
     location.pathname.toLowerCase()
