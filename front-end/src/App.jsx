@@ -6,6 +6,7 @@ import routes from "./routes";
 import store from "./redux/store";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import "react-quill/dist/quill.snow.css";
 
 function App() {
 

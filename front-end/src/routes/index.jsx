@@ -12,10 +12,15 @@ const ProductDetails = React.lazy(() => import("../pages/shop/ProductDetails"));
 const ArticleDetails = React.lazy(() => import("../pages/blogs/ArticleDetails"));
 const Dashboard = React.lazy(() => import("../pages/admin/Dashboard"));
 const BlogTable = React.lazy(() => import("../pages/admin/blog/BlogTable"));
+const BlogForm = React.lazy(() => import("../pages/admin/blog/BlogForm"));
 const EventsTable = React.lazy(() => import("../pages/admin/events/EventsTable"));
+const EventForm = React.lazy(() => import("../pages/admin/events/EventForm"));
 const MembersTable = React.lazy(() => import("../pages/admin/members/MembersTable"));
+const MemberForm = React.lazy(() => import("../pages/admin/members/MemberForm"));
 const ShopTable = React.lazy(() => import("../pages/admin/shop/ShopTable"));
+const ShopForm = React.lazy(() => import("../pages/admin/shop/ShopForm"));
 const CategoriesTable = React.lazy(() => import("../pages/admin/categories/CategoriesTable"));
+const CategoriesForm = React.lazy(() => import("../pages/admin/categories/CategoriesForm"));
 const AdminRoute = React.lazy(() => import("../hocs/AdminRoutes"));
 
 const routes = [
@@ -64,20 +69,40 @@ const routes = [
     element: <AdminRoute children={<BlogTable />} />,
   },
   {
+    path: PathConstants.BLOG_FORM,
+    element: <AdminRoute children={<BlogForm />} />,
+  },
+  {
     path: PathConstants.EVENTS_TABLE,
     element: <AdminRoute children={<EventsTable />} />,
+  },
+  {
+    path: PathConstants.EVENTS_FORM,
+    element: <AdminRoute children={<EventForm />} />,
   },
   {
     path: PathConstants.MEMBERS_TABLE,
     element: <AdminRoute children={<MembersTable />} />,
   },
   {
+    path: PathConstants.MEMBERS_FORM,
+    element: <AdminRoute children={<MemberForm />} />,
+  },
+  {
     path: PathConstants.SHOP_TABLE,
     element: <AdminRoute children={<ShopTable />} />,
   },
   {
+    path: PathConstants.SHOP_FORM,
+    element: <AdminRoute children={<ShopForm />} />,
+  },
+  {
     path: PathConstants.CATEGORIES_TABLE,
     element: <AdminRoute children={<CategoriesTable />} />,
+  },
+  {
+    path: PathConstants.CATEGORIES_FORM,
+    element: <AdminRoute children={<CategoriesForm />} />,
   },
 ];
 
