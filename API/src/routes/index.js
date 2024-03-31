@@ -19,4 +19,7 @@ router.use("/orders", orderRouter);
 const eventRouter = require("./event");
 router.use("/events", eventRouter);
 
+const memberRouter = require("./members");
+router.use("/members", memberRouter);
+
 module.exports = router;

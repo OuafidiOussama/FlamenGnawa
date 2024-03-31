@@ -1,4 +1,5 @@
 const User = require("../models/UserModel");
+const Member = require("../models/MembersModel");
 const ErrorHandler = require("../utils/errorHandler");
 
 exports.register = async (req, res, next) => {
@@ -18,7 +19,16 @@ exports.register = async (req, res, next) => {
     role: req.body.role,
   };
   try {
-    const user = await User.create(data);
+    let user;
+    user = await User.create(data);
+    if (data.role === "member") {
+      const memberData = {
+        user: user._id,
+        quote: req.body.quote,
+        instrument: req.body.instrument,
+      };
+      await Member.create(memberData);
+    }
     res.status(201).json({
       success: true,
       user,
