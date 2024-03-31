@@ -1,20 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { extractErrorMessage } from "../../helpers/ErrorExtractor";
-import blogServices from "../services/blog.service";
+import eventServices from "../services/event.service";
 
 const initialState = {
   loading: false,
-  articles: [],
-  article: {},
+  events: [],
+  event: {},
 };
 
-export const getAllArticles = createAsyncThunk(
-  "/blog/getallarticles",
+export const getAllEvents = createAsyncThunk(
+  "/events/getallevents",
   async (thunkAPI) => {
     try {
-      const res = await blogServices.getAll();
-      return res.data.posts;
+      const res = await eventServices.getAll();
+      return res.data.Events;
     } catch (error) {
       const errorMessage = await extractErrorMessage(error.response.data);
       toast.error(errorMessage);
@@ -22,12 +22,12 @@ export const getAllArticles = createAsyncThunk(
     }
   }
 );
-export const getArticleById = createAsyncThunk(
-  "/blog/getArticle",
+export const getEventById = createAsyncThunk(
+  "/events/event",
   async (id, thunkAPI) => {
     try {
-      const res = await blogServices.getById(id);
-      return res.data.post;
+      const res = await eventServices.getById(id);
+      return res.data.event;
     } catch (error) {
       const errorMessage = await extractErrorMessage(error.response.data);
       toast.error(errorMessage);
@@ -36,13 +36,13 @@ export const getArticleById = createAsyncThunk(
   }
 );
 
-export const createArticle = createAsyncThunk(
-  "/blog/create",
+export const createEvent = createAsyncThunk(
+  "/events/create",
   async (data, thunkAPI) => {
     try {
-      await blogServices.create(data);
-      toast.success("Article created Successfully");
-      thunkAPI.dispatch(getAllArticles());
+      await eventServices.create(data);
+      toast.success("Event created Successfully");
+      thunkAPI.dispatch(getAllEvents());
     } catch (error) {
       const errorMessage = await extractErrorMessage(error.response.data);
       toast.error(errorMessage);
@@ -51,14 +51,14 @@ export const createArticle = createAsyncThunk(
   }
 );
 
-export const updateArticle = createAsyncThunk(
-  "/blog/update",
+export const updateEvent = createAsyncThunk(
+  "/events/update",
   async (data, thunkAPI) => {
     try {
       const { id, ...rest } = data;
-      await blogServices.update(id, rest);
-      toast.success("Article Updated Successfully");
-      thunkAPI.dispatch(getAllArticles());
+      await eventServices.update(id, rest);
+      toast.success("Event Updated Successfully");
+      thunkAPI.dispatch(getAllEvents());
     } catch (error) {
       const errorMessage = await extractErrorMessage(error.response.data);
       toast.error(errorMessage);
@@ -66,13 +66,13 @@ export const updateArticle = createAsyncThunk(
     }
   }
 );
-export const deleteArticle = createAsyncThunk(
-  "/blog/delete",
+export const deleteEvent = createAsyncThunk(
+  "/events/delete",
   async (id, thunkAPI) => {
     try {
-      await blogServices.delete(id);
-      toast.success("Article Deleted Successfully");
-      thunkAPI.dispatch(getAllArticles());
+      await eventServices.delete(id);
+      toast.success("Event Deleted Successfully");
+      thunkAPI.dispatch(getAllEvents());
     } catch (error) {
       const errorMessage = await extractErrorMessage(error.response.data);
       toast.error(errorMessage);
@@ -81,35 +81,35 @@ export const deleteArticle = createAsyncThunk(
   }
 );
 
-const BlogSlice = createSlice({
-  name: "blog",
+const EventSlice = createSlice({
+  name: "event",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getAllArticles.pending, (state) => {
+      .addCase(getAllEvents.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getAllArticles.fulfilled, (state, { payload }) => {
+      .addCase(getAllEvents.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.articles = payload;
-        state.article = {};
+        state.events = payload;
+        state.event = {};
       })
-      .addCase(getAllArticles.rejected, (state) => {
+      .addCase(getAllEvents.rejected, (state) => {
         state.loading = false;
       })
-      .addCase(getArticleById.pending, (state) => {
+      .addCase(getEventById.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getArticleById.fulfilled, (state, { payload }) => {
+      .addCase(getEventById.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.article = payload;
+        state.event = payload;
       })
-      .addCase(getArticleById.rejected, (state) => {
+      .addCase(getEventById.rejected, (state) => {
         state.loading = false;
-      })
+      });
   },
 });
 
-const blogReducer = BlogSlice.reducer;
-export default blogReducer;
+const eventReducer = EventSlice.reducer;
+export default eventReducer;
