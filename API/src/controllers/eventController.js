@@ -38,6 +38,7 @@ exports.createEvent = async (req, res, next) => {
   try {
     const data = {
       title: req.body.title,
+      eventPicture: req.body.eventPicture,
       description: req.body.description,
       eventDate: req.body.eventDate,
       location: req.body.location,
@@ -66,6 +67,7 @@ exports.updateEvent = async (req, res, next) => {
     }
     const data = {
       title: req.body.title || currentEvent.title,
+      eventPicture: req.body.eventPicture || currentEvent.eventPicture,
       description: req.body.description || currentEvent.description,
       eventDate: req.body.eventDate || currentEvent.eventDate,
       location: req.body.location || currentEvent.location,
