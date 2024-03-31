@@ -6,6 +6,11 @@ const eventSchema = new mongoose.Schema({
     trim: true,
     required: [true, "Please Provide Your Event Title"],
   },
+  eventPicture: {
+    type: String,
+    trim: true,
+    required: [true, "Please Provide Your Event Picture"],
+  },
   description: {
     type: String,
     trim: true,
@@ -28,6 +33,7 @@ const eventSchema = new mongoose.Schema({
     type: Number,
     required: [true, "Please Provide Your Available Tickets Number"],
   },
+
 });
 
 module.exports = mongoose.model("events", eventSchema);
