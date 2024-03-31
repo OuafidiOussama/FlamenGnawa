@@ -3,7 +3,7 @@ const ErrorHandler = require("../utils/errorHandler");
 
 exports.getAllPosts = async (req, res, next) => {
   try {
-    const posts = await Blog.find();
+    const posts = await Blog.find().populate("creator");
     res.status(200).json({
       success: true,
       posts,
@@ -16,7 +16,7 @@ exports.getAllPosts = async (req, res, next) => {
 exports.getPostById = async (req, res, next) => {
   try {
     const postId = req.params.id;
-    const post = await Blog.findOne({ _id: postId });
+    const post = await Blog.findOne({ _id: postId }).populate("creator");
 
     if (!post) {
       return next(new ErrorHandler("Post doesnt exist", 404));
