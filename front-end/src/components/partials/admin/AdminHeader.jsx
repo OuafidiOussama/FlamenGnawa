@@ -34,7 +34,7 @@ export default function AdminHeader() {
           <span className="text-red">F</span>lameGnawa
         </p>
       </div>
-      {user && user.role === "admin" ? (
+      {user && user.role === "super" ? (
         <div className="h-full w-full flex flex-col gap-5 uppercase">
           <NavLink
             className={({ isActive }) =>
