@@ -61,7 +61,7 @@ export default function ShopForm() {
       <div className="bg-border/20 h-full rounded-xl flex flex-col p-3 gap-5">
         <div className="border-b-4 py-1 border-border h-14 pr- flex justify-between">
           <p className="font-bold text-4xl capitalize">
-            {action === "create" ? "Add Product" : "Update " + product.name}
+            {action === "create" ? "Add Product" : "Update " + product.label}
           </p>
         </div>
 
