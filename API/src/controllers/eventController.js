@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 exports.getAllEvents = async (req, res, next) => {
   try {
-    const Events = await Event.find()
+    const Events = await Event.find().sort({createdAt: -1})
     res.status(200).json({
       success: true,
       Events,
