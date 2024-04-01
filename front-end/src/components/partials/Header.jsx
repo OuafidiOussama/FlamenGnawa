@@ -124,6 +124,13 @@ export default function Header() {
                   <p className="text-center border-b-2 border-border">
                     {user.first_name + " " + user.last_name}
                   </p>
+                  {user && (user.role ==='super' || user.role==='member')?<NavLink
+                    className="text-center py-2 hover:bg-red/70 hover:text-white duration-300 transition-all cursor-pointer flex items-center gap-2 px-2"
+                    to={PathConstants.DASHBOARD}
+                  >
+                    <Icon icon="material-symbols:dashboard" />
+                    dashboard
+                  </NavLink>: ""}
                   <p className="text-center py-2 hover:bg-red/70 hover:text-white duration-300 transition-all cursor-pointer flex items-center gap-2 px-2">
                     <Icon icon="iconamoon:profile-fill" />
                     profil
