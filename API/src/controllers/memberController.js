@@ -72,7 +72,15 @@ exports.updateMember = async (req, res, next) => {
 exports.deleteMember = async (req, res, next) => {
   try {
     const memberId = req.params.id;
-
+    const currentMember = await Member.findOne({ _id: memberId });
+    if (!currentMember) {
+      return next(new ErrorHandler("member doesnt exist", 404));
+    }
+    const userId = currentMember.user
+    const user = await User.findOneAndDelete({ _id: userId });
+    if (!user) {
+      return next(new ErrorHandler("user not found", 404));
+    }
     const member = await Member.findOneAndDelete({ _id: memberId });
     if (!member) {
       return next(new ErrorHandler("member doesnt exist", 404));
