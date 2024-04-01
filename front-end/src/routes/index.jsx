@@ -2,6 +2,7 @@ import React from "react";
 import PathConstants from "./PathConstants";
 
 const Home = React.lazy(() => import("../pages/home/Home"));
+const Biography = React.lazy(() => import("../pages/Biography"));
 const Members = React.lazy(() => import("../pages/members/Members"));
 const Shop = React.lazy(() => import("../pages/shop/Store"));
 const Blog = React.lazy(() => import("../pages/blogs/Blog"));
@@ -27,6 +28,10 @@ const routes = [
   {
     path: PathConstants.HOME,
     element: <Home />,
+  },
+  {
+    path: PathConstants.BIOGRAPHY,
+    element: <Biography />,
   },
   {
     path: PathConstants.MEMBERS,
