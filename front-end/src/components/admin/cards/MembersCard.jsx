@@ -1,6 +1,5 @@
 import React from 'react'
 import { Icon } from '@iconify/react'
-import logo from "../../../assets/Final.png";
 import { useDispatch } from "react-redux";
 import {
   getMemberById,
@@ -23,7 +22,7 @@ export default function MembersCard({member}) {
     <tr className="h-20 border-white border-b-2">
       <td className="flex justify-center items-center h-20 w-28">
         <img
-          src={user.profil_picture || logo}
+          src={user.profil_picture}
           alt=""
           className="w-16 h-16 object-cover rounded-full"
         />
