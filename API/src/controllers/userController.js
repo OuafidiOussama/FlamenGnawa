@@ -12,7 +12,7 @@ exports.register = async (req, res, next) => {
   const data = {
     first_name: req.body.firstName,
     last_name: req.body.lastName,
-    profile_picture: req.body.profile_picture,
+    profil_picture: req.body.profil_picture,
     email: req.body.email,
     password: req.body.password,
     phone: req.body.phone,
