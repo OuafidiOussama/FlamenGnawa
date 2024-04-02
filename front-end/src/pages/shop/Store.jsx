@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductsContainer from "../../components/containers/shop/ProductsContainer";
+import { useDispatch, useSelector } from "react-redux";
+import Loading from "../../components/partials/Loading";
+import { getAllProducts } from "../../redux/slices/ShopSlice";
 
 export default function Store() {
+  const dispatch = useDispatch()
+  const {loading, products} = useSelector(state=>state.shop)
+  useEffect(()=>{
+    dispatch(getAllProducts())
+  },[dispatch])
   return (
     <div className="font-description min-h-screen">
       <div className="py-10 flex flex-col items-center uppercase">
@@ -9,7 +17,7 @@ export default function Store() {
           Shop
         </p>
       </div>
-      <ProductsContainer />
+      {loading? <Loading />: <ProductsContainer products={products} />}
     </div>
   );
 }

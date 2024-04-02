@@ -5,6 +5,7 @@ const Home = React.lazy(() => import("../pages/home/Home"));
 const Biography = React.lazy(() => import("../pages/Biography"));
 const Members = React.lazy(() => import("../pages/members/Members"));
 const Shop = React.lazy(() => import("../pages/shop/Store"));
+const Cart = React.lazy(() => import("../pages/shop/Cart"));
 const Blog = React.lazy(() => import("../pages/blogs/Blog"));
 const Events = React.lazy(() => import("../pages/events/Events"));
 const Login = React.lazy(() => import("../pages/auth/Login"));
@@ -40,6 +41,10 @@ const routes = [
   {
     path: PathConstants.SHOP,
     element: <Shop />,
+  },
+  {
+    path: PathConstants.CART,
+    element: <Cart />,
   },
   {
     path: `${PathConstants.SHOP}/:productId`,

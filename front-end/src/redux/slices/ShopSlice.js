@@ -7,6 +7,7 @@ const initialState = {
   loading: false,
   products: [],
   product: {},
+  relatedProducts: []
 };
 
 export const getAllProducts = createAsyncThunk(
@@ -27,7 +28,7 @@ export const getProductById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const res = await shopServices.getById(id);
-      return res.data.product;
+      return res.data;
     } catch (error) {
       const errorMessage = await extractErrorMessage(error.response.data);
       toast.error(errorMessage);
@@ -55,9 +56,7 @@ export const updateProduct = createAsyncThunk(
   "/products/update",
   async (data, thunkAPI) => {
     try {
-      console.log(data);
       const { id, ...rest } = data;
-      console.log(id);
       await shopServices.update(id, rest);
       toast.success("Product Updated Successfully");
       thunkAPI.dispatch(getAllProducts());
@@ -96,6 +95,7 @@ const ShopSlice = createSlice({
         state.loading = false;
         state.products = payload;
         state.product = {};
+        state.relatedProducts = [];
       })
       .addCase(getAllProducts.rejected, (state) => {
         state.loading = false;
@@ -105,7 +105,8 @@ const ShopSlice = createSlice({
       })
       .addCase(getProductById.fulfilled, (state, { payload }) => {
         state.loading = false;
-        state.product = payload;
+        state.product = payload.product;
+        state.relatedProducts = payload.relatedProducts;
       })
       .addCase(getProductById.rejected, (state) => {
         state.loading = false;
