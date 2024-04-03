@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import EventsContainer from "../../components/containers/events/EventsContainer";
+import {useDispatch, useSelector} from 'react-redux'
+import Loading from '../../components/partials/Loading'
+import {getAllEvents} from '../../redux/slices/eventSlice'
 
 export default function Events() {
+  const dispatch = useDispatch()
+  const {loading, events} = useSelector(state=>state.events)
+  useEffect(()=>{
+    dispatch(getAllEvents())
+  },[dispatch])
   return (
     <div className="font-description min-h-screen">
       <div className="py-10 flex flex-col items-center uppercase">
@@ -9,7 +17,7 @@ export default function Events() {
           Events
         </p>
       </div>
-      <EventsContainer />
+      {loading? <Loading />: <EventsContainer events={events} />}
     </div>
   );
 }

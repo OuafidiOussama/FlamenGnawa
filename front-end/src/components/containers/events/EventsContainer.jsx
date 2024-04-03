@@ -1,16 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import EventCard from '../../cards/events/EventCard'
 
-export default function EventsContainer() {
-  const [isFlipped, setFlipped] = useState(false);
-  const handleFlip = ()=>{
-    setFlipped(!isFlipped)
-  }
+export default function EventsContainer({events}) {
+  
   return (
     <div className=" py-10 flex flex-wrap justify-center gap-10">
-      <EventCard handleFlip={handleFlip} isFlipped={isFlipped} />
-      <EventCard handleFlip={handleFlip} isFlipped={isFlipped} />
-      <EventCard handleFlip={handleFlip} isFlipped={isFlipped} />
+      {events && events.map(event=> <EventCard key={event._id} event={event} />)}
     </div>
   )
 }

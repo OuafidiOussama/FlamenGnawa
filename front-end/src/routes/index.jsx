@@ -24,8 +24,13 @@ const ShopForm = React.lazy(() => import("../pages/admin/shop/ShopForm"));
 const CategoriesTable = React.lazy(() => import("../pages/admin/categories/CategoriesTable"));
 const CategoriesForm = React.lazy(() => import("../pages/admin/categories/CategoriesForm"));
 const AdminRoute = React.lazy(() => import("../hocs/AdminRoutes"));
+const CheckOutSuccess = React.lazy(() => import("../pages/shop/CheckoutSucess"));
 
 const routes = [
+  {
+    path: PathConstants.CHECKOUT_SUCCESS,
+    element: <CheckOutSuccess />,
+  },
   {
     path: PathConstants.HOME,
     element: <Home />,
