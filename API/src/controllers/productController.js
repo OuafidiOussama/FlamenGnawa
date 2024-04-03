@@ -21,15 +21,15 @@ exports.getProductById = async (req, res, next) => {
       "category",
     );
 
+    if (!product) {
+      return next(new ErrorHandler("Product doesnt exist", 404));
+    }
+    
     const categoryId = product.category._id;
     const relatedProducts = await Product.find({
       category: categoryId,
       _id: { $ne: productId },
     }).populate('category');
-
-    if (!product) {
-      return next(new ErrorHandler("Product doesnt exist", 404));
-    }
     res.status(200).json({
       success: true,
       product,
