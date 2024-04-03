@@ -6,7 +6,7 @@ export default function RelatedProductsContainer({relatedProducts}) {
     <div className="">
       <p className="text-center text-5xl pb-5 text-white">Simular Products</p>
       <div className="flex flex-wrap justify-center gap-10">
-        {relatedProducts.map(product=><ProductCard product={product} />)}
+        {relatedProducts.map(product=><ProductCard key={product._id} product={product} />)}
       </div>
     </div>
   );

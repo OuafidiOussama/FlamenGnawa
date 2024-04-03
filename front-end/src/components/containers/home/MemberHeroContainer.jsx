@@ -15,7 +15,7 @@ export default function MemberHeroContainer({ members }) {
   return (
     <div className="h-4/5 w-full flex flex-col items-center justify-center">
       <Slider className="w-full" {...settings}>
-        {members && members.map((member) => <MemberCard member={member} />)}
+        {members && members.map((member) => <MemberCard key={member._id} member={member} />)}
       </Slider>
     </div>
   );

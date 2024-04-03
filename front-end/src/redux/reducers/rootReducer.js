@@ -6,6 +6,7 @@ import blogReducer from "../slices/blogSlice";
 import eventReducer from "../slices/eventSlice";
 import memberReducer from "../slices/memberSlice";
 import cartReducer from "../slices/cartSlice";
+import stripeReducer from "../slices/stripeSlice";
 
 export const rootReducer = combineReducers({
   auth: authReducer,
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
   blog: blogReducer,
   events: eventReducer,
   members: memberReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  stripe: stripeReducer
 });

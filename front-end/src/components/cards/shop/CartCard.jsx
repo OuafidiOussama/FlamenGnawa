@@ -21,13 +21,12 @@ export default function CartCard({ cartItem }) {
   return (
     <div
       className="grid grid-cols-4 gap-2 border-t border-gray-200 py-2"
-      key={cartItem._id}
     >
       <div className="flex gap-5">
         <img
           src={cartItem.productPicture}
           alt={cartItem.label}
-          className="w-24 h-24 object-cover rounded"
+          className="w-24 h-24 object-contain rounded"
         />
         <div>
           <h3 className="font-medium pb-1">{cartItem.label}</h3>
@@ -46,7 +45,7 @@ export default function CartCard({ cartItem }) {
         </div>
       </div>
       <div className="text-lg font-medium">
-        ${cartItem.unitPrice}
+        {cartItem.unitPrice} MAD
       </div>
       <div className="flex gap-5 items-start">
         <button
@@ -58,13 +57,13 @@ export default function CartCard({ cartItem }) {
         <div className="count px-2">{cartItem.cartQuantity}</div>
         <button
           onClick={() => handleAddToCart(cartItem)}
-          className="border border-gray-300 rounded px-2"
+          className="border  rounded px-2"
         >
           +
         </button>
       </div>
       <div className="font-medium">
-        ${(cartItem.unitPrice * cartItem.cartQuantity).toFixed(2)}
+        {(cartItem.unitPrice * cartItem.cartQuantity).toFixed(2)} MAD
       </div>
     </div>
   );

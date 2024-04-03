@@ -1,6 +1,7 @@
 const PathConstants = {
   HOME: "/",
   CART: "/cart",
+  CHECKOUT_SUCCESS: "/checkout-success",
   MEMBERS: "/members",
   BIOGRAPHY: "/biography",
   SHOP: "/shop",

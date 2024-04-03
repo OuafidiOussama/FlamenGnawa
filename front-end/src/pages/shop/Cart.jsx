@@ -4,6 +4,7 @@ import { clearCart, getTotals } from "../../redux/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 import CartCard from "../../components/cards/shop/CartCard";
+import PayButton from "../../components/cards/PayButton";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ export default function Cart() {
             <div className="h-[400px] overflow-auto">
               {cart.cartItems &&
                 cart.cartItems.map((cartItem) => (
-                  <CartCard cartItem={cartItem} />
+                  <CartCard key={cartItem._id} cartItem={cartItem} />
                 ))}
             </div>
           </div>
@@ -69,11 +70,10 @@ export default function Cart() {
             <div className="w-96 flex flex-col gap-5">
               <div className="flex justify-between  font-semibold">
                 <span>Subtotal</span>
-                <span className="">${cart.cartTotalAmount}</span>
+                <span className="">{cart.cartTotalAmount} MAD</span>
               </div>
               {user && user._id ? (
-                // <PayButton cartItems={cart.cartItems} />
-                <button></button>
+                <PayButton cartItems={cart.cartItems} />
               ) : (
                 <button
                   className="text-black hover:text-white hover:bg-red/20 transition-all duration-300 font-medium rounded px-4 py-2 w-full bg-white"

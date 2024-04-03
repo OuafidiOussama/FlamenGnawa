@@ -9,6 +9,7 @@ import { logout } from "../../redux/slices/authSlice";
 export default function Header() {
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfilOpen, setIsProfilOpen] = useState(false);
 
@@ -111,11 +112,23 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
+          <NavLink to={PathConstants.CART}>
+            <div className="relative ">
+              <div className="absolute -top-3 left-3">
+                <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red/80 p-3 text-xs text-white">
+                  {cartItems.length}
+                </p>
+              </div>
+              <Icon icon="mdi:cart" className="mt-3 h-6 w-6" />
+            </div>
+          </NavLink>
+        </li>
+        <li>
           {isAuthenticated ? (
             <div className="relative">
               <img
                 onClick={toggleProfilMenu}
-                src={user.picture || logo}
+                src={user.profil_picture || logo}
                 alt=""
                 className="w-14 h-14 object-cover rounded-full bg-red/50 p-2 cursor-pointer"
               />
@@ -124,13 +137,17 @@ export default function Header() {
                   <p className="text-center border-b-2 border-border">
                     {user.first_name + " " + user.last_name}
                   </p>
-                  {user && (user.role ==='super' || user.role==='member')?<NavLink
-                    className="text-center py-2 hover:bg-red/70 hover:text-white duration-300 transition-all cursor-pointer flex items-center gap-2 px-2"
-                    to={PathConstants.DASHBOARD}
-                  >
-                    <Icon icon="material-symbols:dashboard" />
-                    dashboard
-                  </NavLink>: ""}
+                  {user && (user.role === "super" || user.role === "member") ? (
+                    <NavLink
+                      className="text-center py-2 hover:bg-red/70 hover:text-white duration-300 transition-all cursor-pointer flex items-center gap-2 px-2"
+                      to={PathConstants.DASHBOARD}
+                    >
+                      <Icon icon="material-symbols:dashboard" />
+                      dashboard
+                    </NavLink>
+                  ) : (
+                    ""
+                  )}
                   <p className="text-center py-2 hover:bg-red/70 hover:text-white duration-300 transition-all cursor-pointer flex items-center gap-2 px-2">
                     <Icon icon="iconamoon:profile-fill" />
                     profil
