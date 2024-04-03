@@ -21,5 +21,10 @@ router.use("/events", eventRouter);
 
 const memberRouter = require("./members");
 router.use("/members", memberRouter);
+const cartRouter = require("./cart");
+router.use("/cart", cartRouter);
+
+const stripeRouter = require("./stripe");
+router.use("/stripe", stripeRouter);
 
 module.exports = router;

@@ -1,57 +1,47 @@
 const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema;
 
-const orderSchema = new mongoose.Schema({
-  cart: [
-    {
+const orderSchema = new mongoose.Schema(
+  {
+    user: {
       type: ObjectId,
-      ref: "carts",
+      ref: "users",
+    },
+    items: [
+      {
+        quantity: {
+          type: Number,
+          default: 1,
+          required: true,
+        },
+        product: {
+          type: ObjectId,
+          ref: "products",
+        },
+      },
+    ],
+    subtotal: {
+      type: Number,
       required: true,
     },
-  ],
-  shippingAddress: {
-    type: String,
-    trim: true,
-    required: [true, "Please Provide a Shipping Address"],
+    total: {
+      type: Number,
+      required: true,
+    },
+    shipping: {
+      type: Object,
+      required: true,
+    },
+    delivery_status: {
+      type: String,
+      default: "pending",
+    },
+    payment_status: {
+      type: String,
+      required: true,
+    },
   },
-  city: {
-    type: String,
-    trim: true,
-    required: [true, "Please Provide a City"],
-  },
-  zip: {
-    type: String,
-    trim: true,
-    required: [true, "Please Provide a ZIP Code"],
-  },
-  country: {
-    type: String,
-    trim: true,
-    required: [true, "Please Provide a Country"],
-  },
-  phone: {
-    type: String,
-    trim: true,
-    required: [true, "Please Provide a Phone Number"],
-  },
-  status: {
-    type: String,
-    default: "Pending",
-  },
-  totalPrice: {
-    type: Number,
-  },
-  user: {
-    type: ObjectId,
-    ref: "users",
-  },
-  dateOrdered: {
-    type: Date,
-    default: Date.now,
-  },
-  deleveryDate: {
-    type: Date,
-  },
-});
+  { timestamps: true },
+);
 
 module.exports = mongoose.model("orders", orderSchema);

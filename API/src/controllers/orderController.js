@@ -47,6 +47,7 @@ exports.getOrderById = async (req, res, next) => {
 
 exports.createOrder = async (req, res, next) => {
   try {
+    const {} = req.body
     const cartItemIds = Promise.all(
       req.body.cart.map(async (item) => {
         let cartItem = new CartItem({
