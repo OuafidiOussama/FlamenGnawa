@@ -34,7 +34,7 @@ describe("Test userController", () => {
     expect(response.body).toHaveProperty("posts");
   });
 
-  it("Should Get Post By Id ", async () => {
+  it("Should Get Blog By Id ", async () => {
     const response = await supertest(app)
       .get("/api/blog/post/6609c7f949f913b83b67d001")
       .set("Authorization", `Bearer ${jwtToken}`)
@@ -57,25 +57,25 @@ describe("Test userController", () => {
     expect(response.body).toEqual({});
   });
 
-  //   it("Should create a new post ", async () => {
-  //     const response = await supertest(app)
-  //       .post("/api/blog/create")
-  //       .set("Authorization", `Bearer ${jwtToken}`)
-  //       .accept("")
-  //       .send({
-  //         title: "test",
-  //         postPicture: "test.png",
-  //         content: "<p>test</p>",
-  //       });
+    it("Should create a new blog ", async () => {
+      const response = await supertest(app)
+        .post("/api/blog/create")
+        .set("Authorization", `Bearer ${jwtToken}`)
+        .accept("")
+        .send({
+          title: "test",
+          postPicture: "test.png",
+          content: "<p>test</p>",
+        });
 
-  //     expect(response.status).toBe(201);
-  //     expect(response.body).toHaveProperty("success");
-  //     expect(response.body).toHaveProperty("post");
-  //   });
+      expect(response.status).toBe(201);
+      expect(response.body).toHaveProperty("success");
+      expect(response.body).toHaveProperty("post");
+    });
 
-  it("Should Update Post ", async () => {
+  it("Should Update Blog ", async () => {
     const response = await supertest(app)
-      .put("/api/blog/update/660cbc183b381533cc0a6fdf")
+      .put("/api/blog/update/660cbcab62726ea12dae0b0a")
       .set("Authorization", `Bearer ${jwtToken}`)
       .accept("")
       .send({
@@ -90,7 +90,7 @@ describe("Test userController", () => {
 
   it("Should Update Post (partial)", async () => {
     const response = await supertest(app)
-      .put("/api/blog/update/660cbc183b381533cc0a6fdf")
+      .put("/api/blog/update/660cbcab62726ea12dae0b0a")
       .set("Authorization", `Bearer ${jwtToken}`)
       .accept("")
       .send({
@@ -114,16 +114,16 @@ describe("Test userController", () => {
     expect(response.status).toBe(500);
   });
 
-  // it("Should delete Product", async () => {
-  //   const response = await supertest(app)
-  //     .delete("/api/blog/delete/660cbd048135ba6bc7b60647")
-  //     .set("Authorization", `Bearer ${jwtToken}`)
-  //     .accept("");
+  it("Should delete Product", async () => {
+    const response = await supertest(app)
+      .delete("/api/blog/delete/660cbc183b381533cc0a6fdf")
+      .set("Authorization", `Bearer ${jwtToken}`)
+      .accept("");
 
-  //   expect(response.status).toBe(200);
-  //   expect(response.body).toHaveProperty("success");
-  //   expect(response.body).toHaveProperty("message");
-  // });
+    expect(response.status).toBe(200);
+    expect(response.body).toHaveProperty("success");
+    expect(response.body).toHaveProperty("message");
+  });
 
   it("Should Throw Post Not found", async () => {
     const response = await supertest(app)
