@@ -30,7 +30,7 @@ export default function MembersHero() {
               <p>members</p>
               <hr className="w-80 border-[1px]" />
             </div>
-            <p className="relative -top-1 -left-2 opacity-20 font-semibold text-red text-8xl tracking-wide">
+            <p className="relative -top-1 -left-2 opacity-20 font-semibold text-red text-3xl md:text-5xl xl:text-8xl tracking-wide">
               flamengnawa members
             </p>
           </div>

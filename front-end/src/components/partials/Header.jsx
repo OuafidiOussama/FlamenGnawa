@@ -25,18 +25,18 @@ export default function Header() {
   };
   return (
     <nav
-      className={`transparent font-main w-full h-20 flex flex-col gap-5 md:gap-0 py-4 md:py-0 md:flex-row justify-start  md:items-center md:px-10 flex-no-wrap relative shadow-md shadow-white/5 md:flex-wrap md:justify-between`}
+      className={`bg-transparent font-main w-full h-20 flex flex-col gap-5 lg:bg-dark-purple lg:gap-0 py-4 lg:py-0 lg:flex-row justify-start  lg:items-center lg:px-10 flex-no-wrap relative shadow-md shadow-white/5 lg:flex-wrap lg:justify-between`}
     >
       <div className="flex z-10">
         <button
-          className="block border-0 bg-transparent px-2 text-white md:hidden"
+          className="block border-0 bg-transparent px-2 text-white lg:hidden"
           type="button"
           onClick={toggleMenu}
         >
           <Icon icon="material-symbols:menu" className="h-9 w-9" />
         </button>
         <NavLink
-          className="flex items-center gap-3 font-black text-3xl"
+          className="flex w-screen lg:w-auto items-center gap-3 font-black text-3xl justify-center lg:justify-start"
           to={PathConstants.HOME}
         >
           <p>
@@ -48,8 +48,8 @@ export default function Header() {
       </div>
       <ul
         className={`${
-          isMenuOpen ? "top-20" : "-top-80"
-        } text-lg py-5 md:py-0 transition-all duration-300 md:top-0 flex gap-5 items-center md:flex-row uppercase flex-col w-full md:w-auto bg-indigo-950 md:bg-transparent absolute left-0 md:relative z-10 `}
+          isMenuOpen ? "top-20" : "-top-[27rem]"
+        } text-lg py-5 lg:py-0 transition-all duration-300 lg:top-0 flex lg:gap-0 xl:gap-5 gap-5 items-center lg:flex-row bg-dark-purple uppercase flex-col w-full lg:w-auto lg:bg-transparent absolute left-0 lg:relative z-30 `}
       >
         <li>
           <NavLink
@@ -111,7 +111,7 @@ export default function Header() {
             events
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to={PathConstants.CART}>
             <div className="relative ">
               <div className="absolute -top-3 left-3">
@@ -122,7 +122,7 @@ export default function Header() {
               <Icon icon="mdi:cart" className="mt-3 h-6 w-6" />
             </div>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           {isAuthenticated ? (
             <div className="relative">

@@ -45,15 +45,15 @@ export default function Login() {
   };
   return (
     <div className="h-screen w-screen flex justify-center items-center font-main">
-      <div className="w-4/5 h-4/5 bg-white rounded-xl overflow-clip flex">
-        <div className="w-1/2 h-full bg-dark-purple ">
+      <div className="w-4/5 h-4/5 bg-white rounded-xl overflow-clip flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 h-1/2 md:h-full  bg-dark-purple ">
           <img
             src={bg}
             alt=""
             className="w-full h-full object-cover  opacity-50"
           />
         </div>
-        <div className="w-1/2 h-full bg-white flex flex-col items-center px-20 py-10">
+        <div className="w-full md:w-1/2 h-full bg-white flex flex-col items-center px-10 md:px-10 lg:px-20 py-10">
           <p className="text-dark-purple font-bold text-5xl uppercase">
             <span className="text-red">L</span>ogin
           </p>

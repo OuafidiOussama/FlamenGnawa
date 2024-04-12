@@ -9,7 +9,7 @@ export default function MemberCard({ member }) {
     setModalOpen(!modalOpen);
   };
   return (
-    <div className="w-96 mx-auto h-96 bg-dark-purple rounded-xl relative">
+    <div className="w-62 mx-2 sm:w-80 h-96 bg-dark-purple rounded-xl relative">
       <div className="relative top-5 left-1/2 -translate-x-14">
         <div className="absolute -top-2 -left-2 bg-black rounded-full w-32 h-32 -z-10"></div>
         <img
@@ -21,7 +21,7 @@ export default function MemberCard({ member }) {
       </div>
       <div className="px-5 translate-y-10 h-full flex flex-col gap-2 items-center">
         <p>{user.first_name + " " + user.last_name}</p>
-        <p>
+        <p className="text-center">
           role:{" "}
           <span className="text-red/80 text-xl font-main">{instrument}</span>
         </p>

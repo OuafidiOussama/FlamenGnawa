@@ -71,10 +71,10 @@ const routes = [
     path: PathConstants.LOGIN,
     element: <Login />,
   },
-  {
-    path: PathConstants.REGISTER,
-    element: <Register />,
-  },
+  // {
+  //   path: PathConstants.REGISTER,
+  //   element: <Register />,
+  // },
   {
     path: PathConstants.DASHBOARD,
     element: <AdminRoute children={<Dashboard />} />,
