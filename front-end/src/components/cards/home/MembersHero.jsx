@@ -10,7 +10,7 @@ export default function MembersHero() {
   const { loading, members } = useSelector((state) => state.members);
   useEffect(() => {
     dispatch(getAllMembers());
-  },[dispatch]);
+  }, [dispatch]);
   return (
     <div className="relative w-full uppercase overflow-clip font-description ">
       <div className="w-full h-screen opacity-5">
@@ -34,7 +34,11 @@ export default function MembersHero() {
               flamengnawa members
             </p>
           </div>
-          <MemberHeroContainer members={members} />
+          {members.length === 0 ? (
+            <div className="flex justify-center items-center h-2/3 text-3xl md:text-5xl lg:text-8xl">Coming Soon!</div>
+          ) : (
+            <MemberHeroContainer members={members} />
+          )}
         </div>
       )}
     </div>

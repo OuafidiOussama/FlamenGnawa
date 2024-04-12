@@ -17,7 +17,7 @@ export default function Events() {
           Events
         </p>
       </div>
-      {loading? <Loading />: <EventsContainer events={events} />}
+      {loading? <Loading /> : events.length === 0 ? <div className="flex justify-center items-center h-2/3 text-3xl md:text-5xl lg:text-8xl">Coming Soon!</div> : <EventsContainer events={events} />}
     </div>
   );
 }

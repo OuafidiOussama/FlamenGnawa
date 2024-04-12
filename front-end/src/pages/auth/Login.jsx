@@ -36,7 +36,6 @@ export default function Login() {
     validationSchema: loginSchema,
     onSubmit: (values, actions) => {
       dispatch(login(values));
-      actions.resetForm();
     },
   });
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
